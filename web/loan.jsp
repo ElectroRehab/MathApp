@@ -21,6 +21,7 @@
 <body id="page-top">
     <%
     String first = request.getParameter("firstVar");
+    String second = request.getParameter("secondVar");
     %>
         <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -72,7 +73,7 @@
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-primary fw-bold m-0">Answer</h6>
                                 </div>
-                                <div class="card-body"><label class="form-label">Payment ($)<input type="text" name="answer" placeholder="$<%out.print(first);%>"></label></div>
+                                <div class="card-body"><label class="form-label">Monthly Payment ($)<input type="text" name="answer" placeholder="$<%out.print(first);%>"></label><label class="form-label">Total Payment ($)<input type="text" name="total" placeholder="$<%out.print(second);%>"></label></div>
                                 <div class="card-body"><img style="background: url(&quot;assets/img/dogs/LoanPay.jpg&quot;);" src="assets/img/dogs/LoanPay.jpg"></div>
                             </div>
                         </div>

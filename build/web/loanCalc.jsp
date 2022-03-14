@@ -20,6 +20,7 @@
         double calcThree = 0.0;
         double calcFour = 0.0;
         double payment = 0.0;
+        double totalPayments = 0.0;
         // HTML variable submitted by the user
         String princVal = request.getParameter("p");        
         String annualVal = request.getParameter("apr");
@@ -36,8 +37,9 @@
         calcThree = (-n*y);
         calcFour = (1 - (Math.pow(calcTwo, calcThree)));
         payment = calcOne / calcFour;
+        totalPayments = ((y) * (n) * (payment));
         // Results sent back to the HTML page for display
-        response.sendRedirect("loan.jsp?firstVar="+payment);
+        response.sendRedirect("loan.jsp?firstVar="+payment+"&secondVar="+totalPayments);
     %>
     </body>
 </html>
