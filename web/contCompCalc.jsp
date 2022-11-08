@@ -29,6 +29,9 @@
             apr = Double.valueOf(annualVal);
             y = Double.valueOf(loanTermVal);
             // Calculations
+            if (apr >= 1){
+                apr = apr / 100;
+            }
             calcOne = apr * y;
             calcTwo = (Math.pow(e, calcOne));
             calcThree = p * calcTwo;

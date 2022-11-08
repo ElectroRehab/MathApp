@@ -28,6 +28,9 @@
             apr = Double.valueOf(annualVal);
             y = Double.valueOf(termVal);
             // Calculations
+            if (apr >= 1){
+                apr = apr / 100;
+            }
             calcOne = 1 + (apr);
             calcTwo = (Math.pow(calcOne, y));
             calcThree = p * calcTwo;

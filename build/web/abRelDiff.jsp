@@ -19,6 +19,7 @@
             String refVal = request.getParameter("refVal");
             comValDouble = Double.valueOf(comVal);
             refValDouble = Double.valueOf(refVal);
+            // Calculations
             double absoDiff = comValDouble-refValDouble;
             double relDiff = (((comValDouble-refValDouble)/refValDouble)*1.00);
             double relDiffPer = relDiff * 100;

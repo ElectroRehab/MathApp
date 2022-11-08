@@ -32,9 +32,12 @@
             apr = Double.valueOf(annualVal);
             n = Double.valueOf(paymentsVal);
             y = Double.valueOf(loanTermVal);
-            // Calculations
+            //Calculations
+            if (apr >= 1){
+                apr = apr / 100;
+            }
             calcOne = principal * (apr / n);
-            calcTwo = 1 + (apr/n);
+            calcTwo = 1 + (apr / n);
             calcThree = (-n*y);
             calcFour = (1 - (Math.pow(calcTwo, calcThree)));
             payment = calcOne / calcFour;
