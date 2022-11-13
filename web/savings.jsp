@@ -20,7 +20,11 @@
 
 <body id="page-top">
     <%
-    String first = request.getParameter("firstVar");
+        String first = request.getParameter("firstVar");
+        String second = request.getParameter("secondVar");
+        String third = request.getParameter("thirdVar");
+        String fourth = request.getParameter("fourthVar");
+        String fifth = request.getParameter("fifthVar");
     %>
         <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -56,13 +60,24 @@
                                     <h6 class="text-primary fw-bold m-0">Savings Plan Formula</h6>
                                 </div>
                                 <section class="contact-clean">
-                                    <form method="post" action="savingCalc.jsp">
+                                    <form method="post" action="allCalc.jsp">
                                         <h2 class="text-center">CALCULATIONS</h2>
+                                        <%if(fourth==null){%>
                                         <div class="mb-3"><input class="form-control" type="text" name="a" placeholder="Starting Principal (A)"></div>
                                         <div class="mb-3"><input class="form-control" type="text" name="apr" placeholder="Annual Percentage Rate (APR)"></div>
                                         <div class="mb-3"><input class="form-control" type="text" name="n" placeholder="Number of Payment Periods Per Year (n)"></div>
                                         <div class="mb-3"><input class="form-control" type="text" name="y" placeholder="Savings Term in Years (Y)"></div>
+                                        <input type="hidden" name="whatCalc" value="savingsCalc">
                                         <div class="mb-3"><button class="btn btn-primary" type="submit">Calculate</button></div>
+                                        <%}
+                                        else{%>
+                                            <div class="mb-3"><input class="form-control" type="text" name="a" placeholder="Starting Principal (A)=<%out.print(second);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="apr" placeholder="Annual Percentage Rate (APR)=<%out.print(third);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="n" placeholder="Number of Payment Periods Per Year (n)=<%out.print(fourth);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="y" placeholder="Savings Term in Years (Y)=<%out.print(fifth);%>"></div>
+                                            <input type="hidden" name="whatCalc" value="savingsCalc">
+                                            <div class="mb-3"><button class="btn btn-primary" type="submit">Calculate</button></div>
+                                        <%}%>
                                     </form>
                                 </section>
                             </div>

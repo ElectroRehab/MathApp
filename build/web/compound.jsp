@@ -19,7 +19,10 @@
 
 <body id="page-top">
     <%
-    String first = request.getParameter("firstVar");
+        String first = request.getParameter("firstVar");
+        String second = request.getParameter("secondVar");
+        String third = request.getParameter("thirdVar");
+        String fourth = request.getParameter("fourthVar");
     %>
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -55,12 +58,22 @@
                                     <h6 class="text-primary fw-bold m-0">Compound Interest</h6>
                                 </div>
                                 <section class="contact-clean">
-                                    <form method="post" action="compCalc.jsp">
+                                    <form method="post" action="allCalc.jsp">
                                         <h2 class="text-center">CALCULATIONS</h2>
-                                        <div class="mb-3"><input class="form-control" type="text" name="p" placeholder="Starting Principal (P)"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="apr" placeholder="Annual Percentage Rate (APR)"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="y" placeholder="Number of Years (Y)"></div>
-                                        <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%if(fourth==null){%>
+                                            <div class="mb-3"><input class="form-control" type="text" name="p" placeholder="Starting Principal (P)"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="apr" placeholder="Annual Percentage Rate (APR)"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="y" placeholder="Number of Years (Y)"></div>
+                                            <input type="hidden" name="whatCalc" value="compoundCalc">
+                                            <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%}
+                                        else{%>
+                                            <div class="mb-3"><input class="form-control" type="text" name="p" placeholder="Starting Principal (P)=<%out.print(second);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="apr" placeholder="Annual Percentage Rate (APR)=<%out.print(third);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="y" placeholder="Number of Years (Y)=<%out.print(fourth);%>"></div>
+                                            <input type="hidden" name="whatCalc" value="compoundCalc">
+                                            <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%}%>
                                     </form>
                                 </section>
                             </div>

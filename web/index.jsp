@@ -21,6 +21,8 @@
         String first = request.getParameter("firstVar");
         String second = request.getParameter("secondVar");
         String third = request.getParameter("thirdVar");
+        String fourth = request.getParameter("fourthVar");
+        String fifth = request.getParameter("fifthVar");
     %>
         <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -56,11 +58,20 @@
                                     <h6 class="text-primary fw-bold m-0">Absolute and Relative Difference</h6>
                                 </div>
                                 <section class="contact-clean">
-                                    <form method="post" action="abRelDiff.jsp">
+                                    <form method="post" action="allCalc.jsp">
                                         <h2 class="text-center">CALCULATIONS</h2>
-                                        <div class="mb-3"><input class="form-control" type="text" name="comVal" placeholder="Compared Value (c)"></div>
-                                        <div class="mb-3"><input class="form-control" type="text" name="refVal" placeholder="Relative Value (r)"></div>
-                                        <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%if(fourth==null){%>
+                                            <div class="mb-3"><input class="form-control" type="text" name="comVal" placeholder="Compared Value (c)"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="refVal" placeholder="Relative Value (r)"></div>
+                                            <input type="hidden" name="whatCalc" value="abRel">
+                                            <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%}
+                                        else{%>
+                                            <div class="mb-3"><input class="form-control" type="text" name="comVal" placeholder="Compared Value (c)=<%out.print(fourth);%>"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" name="refVal" placeholder="Relative Value (r)=<%out.print(fifth);%>"></div>
+                                            <input type="hidden" name="whatCalc" value="abRel">
+                                            <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+                                        <%}%>
                                     </form>
                                 </section>
                             </div>
